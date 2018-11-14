@@ -36,7 +36,7 @@ int partition (int arr[], int low, int high)
 
     int i = (low - 1);  /// menor elemento
     int j;
-    for (j = low; j <= high- 1; j++)
+    for (j = low; j <= high - 1; j++)
     {
         /// se o elemento for menor ou igual ao pivo
 
@@ -65,6 +65,77 @@ void quickSort(int arr[], int low, int high)
         // partition and after partition
         quickSort(arr, low, pi - 1);
         quickSort(arr, pi + 1, high);
+    }
+}
+
+void merge(int arr[], int l, int m, int r)
+{
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 =  r - m;
+
+    /* create temp arrays */
+    int L[n1], R[n2];
+
+    /* Copy data to temp arrays L[] and R[] */
+    for (i = 0; i < n1; i++)
+        L[i] = arr[l + i];
+    for (j = 0; j < n2; j++)
+        R[j] = arr[m + 1+ j];
+
+    /* Merge the temp arrays back into arr[l..r]*/
+    i = 0; // Initial index of first subarray
+    j = 0; // Initial index of second subarray
+    k = l; // Initial index of merged subarray
+    while (i < n1 && j < n2)
+    {
+        if (L[i] <= R[j])
+        {
+            arr[k] = L[i];
+            i++;
+        }
+        else
+        {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    /* Copy the remaining elements of L[], if there
+       are any */
+    while (i < n1)
+    {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+
+    /* Copy the remaining elements of R[], if there
+       are any */
+    while (j < n2)
+    {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+/* l is for left index and r is right index of the
+   sub-array of arr to be sorted */
+void mergeSort(int arr[], int l, int r)
+{
+    if (l < r)
+    {
+        // Same as (l+r)/2, but avoids overflow for
+        // large l and h
+        int m = l+(r-l)/2;
+
+        // Sort first and second halves
+        mergeSort(arr, l, m);
+        mergeSort(arr, m+1, r);
+
+        merge(arr, l, m, r);
     }
 }
 
@@ -118,6 +189,7 @@ int main()
 
     int *arr = (int*)malloc(sizeof(int)*size); ///array selection
     int *arr2 = (int*)malloc(sizeof(int)*size); ///array quick
+    int *arr3 = (int*)malloc(sizeof(int)*size); ///array mergeSort
 
     int op;
 
@@ -126,6 +198,8 @@ int main()
             printf("2 - PRINT - Selection Sort\n");
             printf("3 - READ - Quick Sort\n");
             printf("4 - PRINT - Quick Sort\n");
+            printf("5 - READ - Merge Sort\n");
+            printf("6 - PRINT - Merge Sort\n");
             printf(">\n");
             scanf("%d",&op);
 
@@ -151,7 +225,7 @@ int main()
                     t_inicial = clock();
 
                     readFile(arr2);
-                    quickSort(arr2, 0, size-1);
+                    quickSort(arr2, 0, size - 1);
 
                     t_final = clock();
                     tempo = ((double) (t_final - t_inicial)) /CLOCKS_PER_SEC;
@@ -161,6 +235,23 @@ int main()
                 case 4:
                     printf("Sorted array: \n");
                     printArray(arr2, size);
+                    break;
+
+                 case 5:
+                    t_inicial = clock();
+
+                    readFile(arr3);
+                    //quickSort(arr2, 0, size-1);
+                    mergeSort(arr3, 0, size - 1);
+
+                    t_final = clock();
+                    tempo = ((double) (t_final - t_inicial)) /CLOCKS_PER_SEC;
+                    printf("Time: %lf \n",tempo);
+                    break;
+
+                case 6:
+                    printf("Sorted array: \n");
+                    printArray(arr3, size);
                     break;
 
 
