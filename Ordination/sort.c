@@ -177,3 +177,34 @@ void insertionSort(int arr[], int n) ///INSERTION SORT
        arr[j+1] = key;
    }
 }
+
+int sizeArray(char* vrau)
+{
+    int numero, i=0;
+
+    FILE* file = fopen (vrau, "r");
+
+    while (!feof(file)){
+
+        fscanf(file, "%d", &numero);
+        i++;
+    }
+    fclose(file);
+    return i;
+}
+
+void readFile(int arr[], char* vrau)
+{
+    int numero, i=0;
+
+    FILE* file = fopen (vrau, "r");
+
+    while (!feof(file)){
+
+        fscanf(file, "%d", &numero);
+
+        arr[i] = numero;
+        i++;
+    }
+    fclose(file);
+}

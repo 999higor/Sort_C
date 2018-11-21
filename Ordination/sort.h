@@ -22,6 +22,10 @@ void bubbleSort(int arr[], int n);  ///BUBBLE SORT
 
 void insertionSort(int arr[], int n); ///INSERTION SORT
 
+int sizeArray(char* vrau);
+
+void readFile(int arr[], char* vrau);
+
 
 
 #endif // SORT_H_INCLUDED

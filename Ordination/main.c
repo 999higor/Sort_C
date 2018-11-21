@@ -4,6 +4,7 @@
 
 #include "sort.h"
 #include "search.h"
+#include "menuSort.h"
 
 void printArray(int arr[], int size)
 {
@@ -13,7 +14,7 @@ void printArray(int arr[], int size)
     printf("\n");
 }
 
-int sizeArray(char* vrau)
+/*int sizeArray(char* vrau)
 {
     int numero, i=0;
 
@@ -42,7 +43,7 @@ void readFile(int arr[])
         i++;
     }
     fclose(file);
-}
+}*/
 
 int main()
 {
@@ -50,6 +51,8 @@ int main()
     double tempo=0;
 
     int size;
+
+    sortMenu();
 
     size = sizeArray("values.txt");
 
@@ -74,8 +77,8 @@ int main()
                 case 1:
                     t_inicial = clock();
 
-                    readFile(arr);
-                    selectionSort(arr, size);
+                  //  readFile(arr);
+                  //  selectionSort(arr, size);
 
                     t_final = clock();
                     tempo = ((double) (t_final - t_inicial)) /CLOCKS_PER_SEC;
@@ -90,7 +93,7 @@ int main()
                 case 3:
                     t_inicial = clock();
 
-                    readFile(arr2);
+                   // readFile(arr2);
                     quickSort(arr2, 0, size - 1);
 
                     t_final = clock();
@@ -106,7 +109,7 @@ int main()
                  case 5:
                     t_inicial = clock();
 
-                    readFile(arr3);
+               //     readFile(arr3);
                     //quickSort(arr2, 0, size-1);
                     mergeSort(arr3, 0, size - 1);
 

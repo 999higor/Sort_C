@@ -27,7 +27,38 @@
 	<time.h>
 	<locale.h>
 
-1542402586 source:d:\users\higor\documents\github\sort_c\ordination\main.c
+1542828581 source:d:\users\higor\documents\github\sort_c\ordination\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"sort.h"
+	"search.h"
+	"menuSort.h"
+
+1542827997 d:\users\higor\documents\github\sort_c\ordination\sort.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+
+1542764674 d:\users\higor\documents\github\sort_c\ordination\search.h
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<locale.h>
+
+1542764674 source:d:\users\higor\documents\github\sort_c\ordination\search.c
+	"search.h"
+
+1542827970 source:d:\users\higor\documents\github\sort_c\ordination\sort.c
+	"sort.h"
+
+1542831951 source:d:\users\higor\documents\github\sort_c\ordination\menusort.c
+	"menuSort.h"
+	"sort.h"
+	"search.h"
+
+1542828569 d:\users\higor\documents\github\sort_c\ordination\menusort.h
 	<stdio.h>
 	<stdlib.h>
 	<time.h>

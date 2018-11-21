@@ -34,6 +34,18 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="menuSort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menuSort.h" />
+		<Unit filename="search.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="search.h" />
+		<Unit filename="sort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sort.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
