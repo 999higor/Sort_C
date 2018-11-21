@@ -2,8 +2,28 @@
 1540944550 source:c:\users\administrador\desktop\ordination\main.c
 	<stdio.h>
 
-1542173107 source:c:\users\administrador\documents\github\sort_c\ordination\main.c
+1542811314 source:c:\users\administrador\documents\github\sort_c\ordination\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
+	"sort.h"
+	"search.h"
+
+1542811098 source:c:\users\administrador\documents\github\sort_c\ordination\search.c
+	"search.h"
+
+1542809754 source:c:\users\administrador\documents\github\sort_c\ordination\sort.c
+	"sort.h"
+
+1542809754 c:\users\administrador\documents\github\sort_c\ordination\sort.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+
+1542811098 c:\users\administrador\documents\github\sort_c\ordination\search.h
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<locale.h>
 
