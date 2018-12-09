@@ -7,6 +7,4 @@
 
 void sortMenu();
 
-
-
 #endif // MENUSORT_H_INCLUDED

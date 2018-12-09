@@ -26,6 +26,38 @@ void selectionSort(int arr[], int n) ///SELECTION SORT
         arr[i] = temp;
     }
 }
+void quicksort25(int number[],int first,int last)
+{
+   int i, j, pivot, temp;
+
+   if(first<last)
+    {
+      pivot=first;
+      i=first;
+      j=last;
+
+      while(i<j)
+        {
+         while(number[i]<=number[pivot]&&i<last)
+            i++;
+         while(number[j]>number[pivot])
+            j--;
+         if(i<j){
+            temp=number[i];
+            number[i]=number[j];
+            number[j]=temp;
+         }
+      }
+
+      temp=number[pivot];
+      number[pivot]=number[j];
+      number[j]=temp;
+      quicksort25(number,first,j-1);
+      quicksort25(number,j+1,last);
+
+   }
+}
+
 
 int partition (int arr[], int low, int high)
 {
@@ -65,22 +97,47 @@ void quickSort(int arr[], int low, int high)    ///QUICK SORT
     }
 }
 
-void merge(int arr[], int l, int m, int r)
+int count;
+void QuickSortMedian(int a[],int start,int end)
+{
+    int q;
+    count++;
+    if (end-start<2) return;
+    q=MedianOfThreePartition(a,start,end);
+    QuickSortMedian(a,start,q);
+    QuickSortMedian(a,q,end);
+}
+
+int MedianOfThreePartition(int a[],int p, int r)
+{
+    int x=a[p],y=a[(r-p)/2+p],z=a[r-1],i=p-1,j=r;
+    if ((y>x && y<z) || (y>z && y<x) ) x=y;
+    else if ((z>x && z<y) || (z>y && z<x) ) x=z;
+    while (1) {
+        do  {j--;count++;} while (a[j] > x);
+        do  {i++;count++;} while (a[i] < x);
+        if  (i < j) swap(&a[i],&a[j]);
+        else return j+1;
+    }
+}
+
+
+/*void merge(int arr[], int l, int m, int r)
 {
     int i, j, k;
     int n1 = m - l + 1;
     int n2 =  r - m;
 
-    /* create temp arrays */
+
     int L[n1], R[n2];
 
-    /* Copy data to temp arrays L[] and R[] */
+
     for (i = 0; i < n1; i++)
         L[i] = arr[l + i];
     for (j = 0; j < n2; j++)
         R[j] = arr[m + 1+ j];
 
-    /* Merge the temp arrays back into arr[l..r]*/
+
     i = 0; // Initial index of first subarray
     j = 0; // Initial index of second subarray
     k = l; // Initial index of merged subarray
@@ -99,8 +156,7 @@ void merge(int arr[], int l, int m, int r)
         k++;
     }
 
-    /* Copy the remaining elements of L[], if there
-       are any */
+
     while (i < n1)
     {
         arr[k] = L[i];
@@ -108,19 +164,18 @@ void merge(int arr[], int l, int m, int r)
         k++;
     }
 
-    /* Copy the remaining elements of R[], if there
-       are any */
+
     while (j < n2)
     {
         arr[k] = R[j];
         j++;
         k++;
     }
-}
+}*/
 
 /* l is for left index and r is right index of the
    sub-array of arr to be sorted */
-void mergeSort(int arr[], int l, int r)     ///MERGE SORT
+/*void mergeSort(int arr[], int l, int r)     ///MERGE SORT
 {
     if (l < r)
     {
@@ -134,6 +189,57 @@ void mergeSort(int arr[], int l, int r)     ///MERGE SORT
 
         merge(arr, l, m, r);
     }
+}*/
+
+
+void mergesort(int v[], int n)
+{
+  int *c = malloc(sizeof(int) * n);
+  sort(v, c, 0, n - 1);
+  free(c);
+}
+
+/*
+  Dado um vetor de inteiros v e dois inteiros i e f, ordena o vetor v[i..f] em ordem crescente.
+  O vetor c é utilizado internamente durante a ordenação.
+*/
+void sort(int v[], int *c, int i, int f) {
+  if (i >= f) return;
+
+  int m = (i + f) / 2;
+
+  sort(v, c, i, m);
+  sort(v, c, m + 1, f);
+
+  /* Se v[m] <= v[m + 1], então v[i..f] já está ordenado. */
+  if (v[m] <= v[m + 1]) return;
+
+  merge(v, c, i, m, f);
+}
+
+
+/*
+  Dado um vetor v e três inteiros i, m e f, sendo v[i..m] e v[m+1..f] vetores ordenados,
+  coloca os elementos destes vetores, em ordem crescente, no vetor em v[i..f].
+*/
+void merge(int v[], int *c, int i, int m, int f) {
+  int z,
+      iv = i, ic = m + 1;
+
+  for (z = i; z <= f; z++) c[z] = v[z];
+
+  z = i;
+
+  while (iv <= m && ic <= f) {
+    /* Invariante: v[i..z] possui os valores de v[iv..m] e v[ic..f] em ordem crescente. */
+
+    if (c[iv] < c[ic]) v[z++] = c[iv++];
+    else /* if (c[iv] > c[ic]) */ v[z++] = c[ic++];
+  }
+
+  while (iv <= m) v[z++] = c[iv++];
+
+  while (ic <= f) v[z++] = c[ic++];
 }
 
 void bubbleSort(int arr[], int n) ///BUBBLE SORT
@@ -196,6 +302,8 @@ int sizeArray(char* vrau)
 void readFile(int arr[], char* vrau)
 {
     int numero, i=0;
+
+    //printf("string %s",vrau);
 
     FILE* file = fopen (vrau, "r");
 

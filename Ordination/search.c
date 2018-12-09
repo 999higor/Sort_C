@@ -1,6 +1,6 @@
 #include "search.h"
 
-int orderedLinearSearch(long int arr[], int size , int num)
+int orderedLinearSearch( int arr[], int size , int num)
 {
     int i;
 
@@ -8,18 +8,19 @@ int orderedLinearSearch(long int arr[], int size , int num)
     {
         if(num == arr[i])
         {
-            return arr[i];
+            //return arr[i];
+            return 0;
         }else
             if (num < arr[i])
             {
                 //printf("\nValue not found !\n");
-                return -1;
+                return 1;
             }
     }
-    return -1;
+    return 1;
 }
 
-int linearSearch(long int arr[], int size , int num)
+int linearSearch( int arr[], int size , int num)
 {
     int i;
 
@@ -27,13 +28,14 @@ int linearSearch(long int arr[], int size , int num)
     {
         if(num == arr[i])
         {
-            return arr[i];
+            //return arr[i];
+            return 0;
         }
     }
-    return -1;
+    return 1;
 }
 
-int binarySearch(long int arr[], int size, int num)
+int binarySearch( int arr[], int size, int num)
 {
     int begin, mid, end;
     begin = 0;
@@ -55,37 +57,62 @@ int binarySearch(long int arr[], int size, int num)
         }else
         {
            // printf("\nValue found !\n ");
-            return mid;
+            return 0;
         }
     }
     //printf("Value not found !\n");
-    return -1;
+    return 1;
 }
 
-void ReadOrderedLinearSearch(long int arr[], int size)
+void ReadOrderedLinearSearch( int arr[], int size)
 {
     int number;
+    int value;
 
-    FILE* busca = fopen("search.txt", "r");
+    FILE* search = fopen("search", "r");
+    FILE* linearOrdered = fopen("LinearOrdered", "w");
 
-    while(!feof(busca))
+    while(!feof(search))
     {
-        fscanf(busca, "%d", &number);
-        orderedLinearSearch(arr, size, number);
+        fscanf(search, "%d", &number);
+        value = orderedLinearSearch(arr, size, number);
+        fprintf(linearOrdered, "%d",value);
     }
-    fclose(busca);
+    fclose(search);
+    fclose(linearOrdered);
 }
 
-void ReadLinearSearch(long int arr[], int size)
+void ReadLinearSearch( int arr[], int size)
 {
     int number;
+    int value;
 
-    FILE* busca = fopen("search.txt", "r");
+    FILE* search = fopen("search", "r");
+    FILE* linear = fopen("Linear", "w");
 
-    while(!feof(busca))
+    while(!feof(search))
     {
-        fscanf(busca, "%d", &number);
-        binarySearch(arr, size, number);
+        fscanf(search, "%d", &number);
+        value = linearSearch(arr, size, number);
+        fprintf(linear, "%d",value);
     }
-    fclose(busca);
+    fclose(search);
+    fclose(linear);
+}
+
+void ReadBinarySearch( int arr[], int size)
+{
+    int number;
+    int value;
+    FILE* binary = fopen("binary", "w");
+    FILE* search = fopen("search", "r");
+
+    while(!feof(search))
+    {
+        fscanf(search, "%d", &number);
+        value = binarySearch(arr, size, number);
+        fprintf(binary, "%d",value);
+    }
+    fclose(search);
+    fclose(binary);
 }

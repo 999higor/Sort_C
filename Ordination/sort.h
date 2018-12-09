@@ -14,9 +14,22 @@ int partition (int arr[], int low, int high);
 
 void quickSort(int arr[], int low, int high) ;  ///QUICK SORT
 
-void merge(int arr[], int l, int m, int r);
+void quicksort25(int number[],int first,int last);
 
-void mergeSort(int arr[], int l, int r);    ///MERGE SORT
+void QuickSortMedian(int a[],int start,int end); ///QUICK SORT FUNCIONAL
+
+int MedianOfThreePartition(int a[],int p, int r);
+
+//void merge(int arr[], int l, int m, int r);
+
+//void mergeSort(int arr[], int l, int r);    ///MERGE SORT
+
+void mergesort(int v[], int n);    ///MERGE SORT FUNCIONAL
+
+void sort(int v[], int *c, int i, int f);
+
+void merge(int v[], int *c, int i, int m, int f);
+
 
 void bubbleSort(int arr[], int n);  ///BUBBLE SORT
 

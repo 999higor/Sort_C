@@ -27,38 +27,49 @@
 	<time.h>
 	<locale.h>
 
-1542828581 source:d:\users\higor\documents\github\sort_c\ordination\main.c
+1544336680 source:d:\users\higor\documents\github\sort_c\ordination\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	"sort.h"
 	"search.h"
 	"menuSort.h"
+	"menuSearch.h"
 
-1542827997 d:\users\higor\documents\github\sort_c\ordination\sort.h
+1544327944 d:\users\higor\documents\github\sort_c\ordination\sort.h
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<stdbool.h>
 
-1542764674 d:\users\higor\documents\github\sort_c\ordination\search.h
+1544336984 d:\users\higor\documents\github\sort_c\ordination\search.h
 	<stdlib.h>
 	<stdio.h>
 	<time.h>
 	<locale.h>
 
-1542764674 source:d:\users\higor\documents\github\sort_c\ordination\search.c
+1544336012 source:d:\users\higor\documents\github\sort_c\ordination\search.c
 	"search.h"
 
-1542827970 source:d:\users\higor\documents\github\sort_c\ordination\sort.c
+1544325478 source:d:\users\higor\documents\github\sort_c\ordination\sort.c
 	"sort.h"
 
-1542831951 source:d:\users\higor\documents\github\sort_c\ordination\menusort.c
+1544335317 source:d:\users\higor\documents\github\sort_c\ordination\menusort.c
 	"menuSort.h"
 	"sort.h"
 	"search.h"
 
-1542828569 d:\users\higor\documents\github\sort_c\ordination\menusort.h
+1544334665 d:\users\higor\documents\github\sort_c\ordination\menusort.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1544336994 source:d:\users\higor\documents\github\sort_c\ordination\menusearch.c
+	"menuSearch.h"
+	"search.h"
+	"sort.h"
+
+1544336042 d:\users\higor\documents\github\sort_c\ordination\menusearch.h
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
